@@ -39,17 +39,25 @@ Trường hợp DHCP Client quyết định tham số thông tin được đề 
   + DHCP thường chỉ đc sử dụng tại các hộ gia đình hoặc mô hình mạng nhỏ
 
 Đối với mô hình mạng nhỏ ( hộ gia đình ) Router hoạt động như một máy chủ DHCP, với mô hình mạng lớn hơn thì không thể quản lý số lượng thiết bị nên sẽ cần một máy chủ chuyên dụng để cấp phát IP.
+
 *Bước 1:*
+
   + DHCP Client gửi broadcast thông điệp discover message để tìm một DHCP Server nhằm xin IP.
   Gói tin DHCP này được bọc trong một gói UDP với source port là 68 và destination port là 67. Gói UDP đến lượt nó được đóng gói vào một gói IP với source IP là 0.0.0.0 và destination IP là 255.255.255.255
+
 Bước 2:
+
   + DHCP Server nhận được thông điệp này sẽ gửi lại thông điệp offer message cho Client.
   Thông điệp Offer ghi ra mọi thông số server cấp xuống cho client (MAC của client, địa chỉ ip client, subnet mask, địa chỉ ip server, thời gian cho thuê đến client).
   Gói tin OFFER này được bọc trong một gói UDP với source port là 67 và destination port là 68. Gói UDP đến lượt nó được đóng gói vào một gói IP với source IP là địa chỉ IP của server và destination IP là 255.255.255.255
+
   Bước 3:
+
   + Client sẽ chọn 1 trong các địa chỉ IP, sau đó gửi lại thông điệp request message tương ứng với DHCP server đó.
   + Gói REQUEST này sẽ được đóng vào một gói UDP với source port là 68 và destination port là 67. Gói UDP sẽ được truyền tải trong một gói IP với source IP là 0.0.0.0 và destination IP là 255.255.255.255
+  + 
 Bước 4:
+
   + Server sẽ hoàn tất bằng cách gửi thông điệp ACK cho client. Ngoài ra còn có gateway mặc định, địa chỉ dns server.
   + DHCP ACK được đóng vào gói UDP với source port là 67 và destination port là 68, được truyền tải trong gói IP có source IP là IP của server và destination IP là 255.255.255.255
   + Đến đây, client chính thức có cấu hình IP và có thể sử dụng địa chỉ IP được cấp phát để trao đổi dữ liệu. Mỗi cấu hình IP được cấp phát sẽ chỉ có thời hạn trong một khoảng thời gian nhất định, sau khoảng thời gian này, client phải yêu cầu server cấp phát gia hạn lại cấu hình IP của mình. Trong những lần sau, các thông điệp DHCP được gửi unicast thay vì broadcast như lần cấp phát đầu tiên.
