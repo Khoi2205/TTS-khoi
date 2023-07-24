@@ -100,12 +100,12 @@ Giao thức đặc trưng của tầng này : UDP (user datagram protocol) ,TCP(
 Giao thức TCP/IP được chia thành 4 tầng mạng : 
 
 
-![Alt text](./anh/./anh/./anh/image-1.png)
+![Alt text](./anh/image-1.png)
 
 
 ***Tầng ứng dụng***
 
-![Alt text](./anh/./anh/image-3.png)  
+![Alt text](./anh/image-3.png)  
 
 
 - Phần lớn người sử dụng chỉ quan tâm tới các dịch vụ thông tin được cung cấp trên Internet. Tầng 4 có vai trò giao tiếp dữ liệu giữa 2 máy khác nhau.
