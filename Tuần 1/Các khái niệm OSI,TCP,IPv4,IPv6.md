@@ -20,10 +20,16 @@ Mô hình OSI gồm 7 tầng với những cấu trúc và chức năng riêng
 
 
 ***Tầng physical*** : 
+
+
 Bao gồm các thiết bị vật lý , thiết bị phần cứng . Dữ liệu được truyền ở ở tầng này dưới dạng 0 và 1
 Thiết bị đặc trưng của tầng này : hubs, Repeaters
 Giao thức đặc trưng : ethernet
+
+
 ***Tầng Data Link***:
+
+
 - Tầng liên kết dữ liệu là tầng mạng có nhiệm vụ truyền dữ liệu giữa các nút mạng kề nhau trong một mạng diện rộng hoặc giữa các nút trong cùng một segment mạng cục bộ.
 - Ngoài ra tầng data link còn kiểm soát lỗi đường truyền, thông lượng.
 - Tầng này thực hiện việc đóng gói thông tin gửi thành các frame, gửi các frame một cách tuần tự đi trên mạng, xử lý các thông báo xác nhận (Acknowledgement frame) do bên nhận gửi về.
@@ -32,7 +38,11 @@ Giao thức đặc trưng : ethernet
 
 Thiết bị đặc trưng của tầng này : switch
 Giao thức đặc trưng : ARP(address Resolution Protocol),MAC,RARP(Reverse Address Resolution Protocol)
+
+
 ***Tầng Network*** :
+
+
 - Vấn đề chủ chốt của tầng mạng là dẫn đường (định tuyến), định rõ các gói tin (packet) được truyền theo những con đường nào từ nguồn đến đích.
 - Các con đường này có thể cố định, ít bị thay đổi,được thiết lập khi bắt đầu liên kết hay động (dynamic) thay đổi tuỳ theo trạng thái tải của mạng.
 - Nếu có nhiều gói tin truyền trên mạng có thể xảy ra tình trạng tắc nghẽn, tầng mạng phải giải quyết vấn đề này.
@@ -49,9 +59,15 @@ Giao thức đặc trưng : ARP(address Resolution Protocol),MAC,RARP(Reverse Ad
 
 
 ***Tầng Transport***: 
+
+
 - Tầng này chịu trách nhiệm thiết lập kết nối giữa hai thiết bị , nhận dữ liệu từ tầng phiên rồi xử lý để gửi xuống tầng dưới  cũng như nhận dữ liệu từ tầng dưới xử lý để chuyển lên tầng trên ,cung cấp các dịch vụ đảm bảo lưu lượng dữ liệu tin cậy, đúng thứ tự và không bị mất.
 Giao thức đặc trưng của tầng này : UDP (user datagram protocol) ,TCP(Transmission control protocol)
-***Tầng Session* (tầng phiên )** : 
+
+
+***Tầng Session* (tầng phiên )** :
+
+
 - Tầng này cho phép người sử dụng trên các máy khác nhau thiết lập, duy trì, huỷ bỏ, đồng bộ phiên truyền thông giữa họ.
 - Cung cấp một số dịch vụ hữu ích cho người sử dụng như cho phép người dùng login vào hệ thống chia sẻ thời gian, truyền tệp giữa các máy tính.
 - Quản lý token: cơ chế thẻ bài được tầng phiên cung cấp để tránh hiện tượng tranh chấp đường truyền trên mạng.
@@ -59,12 +75,16 @@ Giao thức đặc trưng của tầng này : UDP (user datagram protocol) ,TCP(
 - Các giao thức tiêu biểu tầng Session sử dụng : ASAP, TLS, ISO 8327 / CCITT X.225, RPC, NetBIOS, ASP.
 
 ***Tầng Presentation***
+
+
 - Giải quyết vấn đề liên quan tới cú pháp và ngữ nghĩa của thông tin như chuyển đổi thông tin theo một chuẩn nào đó được cả hai bên sử dụng (mã ASCII - EBCDIC).
 - Nén/giãn dữ liệu để giảm số lượng bit truyền trên mạng.
 - Mã hoá dữ liệu để thực hiện quyền truy cập.
 - Các giao thức tiêu biểu tầng Presentation sử dụng : XDR(Extreme Dynamic Range), ASN.1 (Abstract Syntax Notation One), SMB (Server Message Block), AFP (Alpha-fetoprotein), NCP (Network Control Protocol).
 
 ***Tầng Application***
+
+
 -  Tầng ứng dụng cung cấp giao diện sử dụng cho người dùng (Chrome,mozilla firefox,...) và môi trường truyền tin.
 -  Thực hiện chức năng chuyển file trong đó có giải quyết vấn đề không tương thích như cách đặt tên file hay các mã điều khiển trong một tệp văn bản...
 -   Cung cấp các dịch vụ tiêu biểu cho người dùng: Web, Mail, DNS (phân giải tên miền ), DHCP(cấp phát IP  động), FTP (truyền file dữ liệu: hình ảnh,văn bản,v.v….).v.v….
@@ -81,15 +101,20 @@ Giao thức đặc trưng của tầng này : UDP (user datagram protocol) ,TCP(
 
 
 **Ưu điểm trong mô hình OSI**
+
 + Mỗi tầng có 1 cấu trúc và chức năng nên dễ dàng xây dựng và sửa chữa
 + Có thể tích hợp nhiều mạng lưới khác nhau 
 + Hỗ trợ kết nối có liên kết và không liên kết
+
+
 **Nhược điểm của mô hình OSI:**
 + Phức tạp
 + không phản ánh hoàn toàn thực tế của giao thức mạng hiện tại , các mạng hiện nay thường sử dụng các + giao thức mạng khác nhau và không theo chuẩn OSI đầy đủ
 + Chi phí cao
 
 ### 1.2. 1.2 Mô hình TCP/IP
+
+
 **Mô hình TCP/IP**
 - TCP/ IP (Transmission Control Protocol/ Internet Protocol - Giao thức điều khiển truyền nhận/ Giao thức liên mạng), là một bộ giao thức trao đổi thông tin được sử dụng để truyền tải và kết nối các thiết bị trong mạng Internet. TCP/IP được phát triển để mạng được tin cậy hơn cùng với khả năng phục hồi tự động.
 
