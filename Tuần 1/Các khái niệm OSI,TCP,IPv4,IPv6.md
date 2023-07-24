@@ -333,9 +333,13 @@ Ví dụ: Quy tắc biểu diễn của 56 bit prefix 200F00000000AB là
 
 
 3. Các thành phần của IPv6
-	Địa chỉ IPv6 có 3 thành phần: Site prefix, Subnet ID, Interface ID.
-Site Prefix: đây là thông số được gắn với Website thông qua ISP. Do đó toàn bộ máy tính ở cùng vị trí sẽ chia sẻ với nhau bằng một site prefix.
-Subnet ID: đây là thành phần bên trong Website. Nó được dùng để miêu tả site mạng.
+
+Địa chỉ IPv6 có 3 thành phần: `Site prefix`, `Subnet ID`, `Interface ID`
+
+`Site Prefix`: đây là thông số được gắn với Website thông qua ISP. Do đó toàn bộ máy tính ở cùng vị trí sẽ chia sẻ với nhau bằng một site prefix.
+
+
+`Subnet ID`: đây là thành phần bên trong Website. Nó được dùng để miêu tả site mạng.
 Interface ID: cấu trúc của nó tương tự ID trong IPv4. Các thông số sẽ nhận một host riêng. Interface ID có cấu hình tự động.
 Ví dụ: địa chỉ IPv6 có cấu trúc: 2001:0f68:0000:0000:0000:0000:1986:69af bao gồm:
 Site prefix: 2001:0f68:0000
