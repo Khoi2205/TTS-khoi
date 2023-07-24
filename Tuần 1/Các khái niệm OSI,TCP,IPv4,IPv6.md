@@ -323,10 +323,15 @@ VD: 2031:0517:0000:0000:A5C7:0000:0000:130B
 -> 2031:517::A5C7:0:0:130B (Đúng)
 
 2. Biểu diễn của Address Prefixes.
+
+
 Prefix của địa chỉ IPv6 được biểu diễn tương tự với ký tự IPv4 CIDR. IPv6 prefix được biểu diễn như sau: IPv6 Address/Prefix-length.
+
 Trong đó:
 IPv6 Address: địa chỉ IPv6 với giá trị bất kỳ.
 Prefix-length: số bit liền kề nhau trong Prefix.
+
+
 Ví dụ: Quy tắc biểu diễn của 56 bit prefix 200F00000000AB là
 200F::AB00:0:0:0:0/56
 200F:0:0:AB00::/56
