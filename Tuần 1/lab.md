@@ -1,3 +1,22 @@
+- [1. Thực hiện cấu hình giữa các sw core và sw acc](#1-thực-hiện-cấu-hình-giữa-các-sw-core-và-sw-acc)
+	- [1.1. - Cấu hình etherchannel giữa CORE1 và CORE2](#11---cấu-hình-etherchannel-giữa-core1-và-core2)
+		- [1.1.1. Thực hiện cấu hình trên sw core 1](#111-thực-hiện-cấu-hình-trên-sw-core-1)
+	- [1.2. Trên CORE1 tạo vlan 10,20,30,40,50. Đồng thời cấu hình VTP với CORE1 là server và các sw khác là client](#12-trên-core1-tạo-vlan-1020304050-đồng-thời-cấu-hình-vtp-với-core1-là-server-và-các-sw-khác-là-client)
+		- [1.2.1. Cấu hình trên sw core 1](#121-cấu-hình-trên-sw-core-1)
+	- [1.3. 4- Trên các sw ACC gán các port vào vlan như hình](#13-4--trên-các-sw-acc-gán-các-port-vào-vlan-như-hình)
+		- [1.3.1. ACC3 với vlan 10 và vlan 20](#131-acc3-với-vlan-10-và-vlan-20)
+		- [1.3.2. Cấu hình spanning-tree với CORE1 là root-sw cho vlan 10,20,50 và CORE2 là root-sw cho vlan 30,40](#132-cấu-hình-spanning-tree-với-core1-là-root-sw-cho-vlan-102050-và-core2-là-root-sw-cho-vlan-3040)
+	- [1.4. 6- Đặt ip cho các vlan trên sw CORE như sau: CORE1 là 192.168.x.1/24 và CORE2 là 192.168.x.2/24](#14-6--đặt-ip-cho-các-vlan-trên-sw-core-như-sau-core1-là-192168x124-và-core2-là-192168x224)
+	- [1.5. Cấu hình HSRP trên sw CORE với vlan 10,20,50 ưu tiên đi CORE1 và vlan 30,40 ưu tiên đi CORE2](#15-cấu-hình-hsrp-trên-sw-core-với-vlan-102050-ưu-tiên-đi-core1-và-vlan-3040-ưu-tiên-đi-core2)
+	- [1.6. 8- Cấu hình SERVER làm DHCP server, cấp phát ip cho các VPC với vlan tương ứng](#16-8--cấu-hình-server-làm-dhcp-server-cấp-phát-ip-cho-các-vpc-với-vlan-tương-ứng)
+		- [1.6.1. Đặt ip cho các R và sw CORE, cấu hình Nat trên R để mạng nội bộ ra được internet (ping đc 8.8.8.8)](#161-đặt-ip-cho-các-r-và-sw-core-cấu-hình-nat-trên-r-để-mạng-nội-bộ-ra-được-internet-ping-đc-8888)
+		- [1.6.2. Thực hiện cấu hình định tuyến động](#162-thực-hiện-cấu-hình-định-tuyến-động)
+	- [1.7. Nat SERVER ra ngoài internet với địa chỉ public 203.162.1.2 cho dịch vụ web và ftp](#17-nat-server-ra-ngoài-internet-với-địa-chỉ-public-20316212-cho-dịch-vụ-web-và-ftp)
+	- [1.8. Cấu hình load-balancing trên R-Hải Phòng ra Net](#18-cấu-hình-load-balancing-trên-r-hải-phòng-ra-net)
+	- [1.9. 13- Cấu hình GRE VPN trên R-Active, R-Backup, R-Chi nhánh để dù 1 R trên trụ sở down thì vẫn vpn vào SERVER bằng R còn lại](#19-13--cấu-hình-gre-vpn-trên-r-active-r-backup-r-chi-nhánh-để-dù-1-r-trên-trụ-sở-down-thì-vẫn-vpn-vào-server-bằng-r-còn-lại)
+	- [1.10. Cấu hình chỉ cho vlan 10 có thể telnet/SSH vào các R và sw CORE](#110-cấu-hình-chỉ-cho-vlan-10-có-thể-telnetssh-vào-các-r-và-sw-core)
+		- [1.10.1. Thực hiện show kq](#1101-thực-hiện-show-kq)
+
 Mô hình bài lab 
 
 
@@ -875,7 +894,7 @@ access-class 2 in: Đây là lệnh áp dụng ACL số 2 đã tạo ở trên c
 ```
 
 
-#### Thực hiện show kq
+#### 1.10.1. Thực hiện show kq
 
 Thực hiện ssh ở PC0 thuộc vlan 10
 
