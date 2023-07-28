@@ -31,10 +31,15 @@ Trong trường hợp địa chỉ IP không được Client sử dụng vì kh�
 Trường hợp DHCP Client quyết định tham số thông tin được đề nghị nào không có giá trị nó sẽ gửi một gói DHCP Decline đến các server và Client phải bắt đầu tiến trình thuê lại IP
 
 **Ưu điểm**  
-  + Giúp các thiết bị kết nối mạng nhanh chóng từ máy tính, laptop, điện thoại,máy tính bảng+   Quản lý địa chỉ IP một cách khoa học, tránh trường hợp trùng IP,đảm bảo cấu hình tự động cho mọi thiết bị kết nối mạng
+  + Giúp các thiết bị kết nối mạng nhanh chóng từ máy tính, laptop, điện thoại,máy tính bảng
+  + Quản lý địa chỉ IP một cách khoa học, tránh trường hợp trùng IP,đảm bảo cấu hình tự động cho mọi thiết bị kết nối mạng
   + Quản lý địa chỉ IP và các tham số TCP/IP
   + Cách nhà quản trị mạng có thể thay đổi cấu hình và thông số của IP để nâng cấp cơ sở hạ tầng .Các thiết bị có thể di chuyển tự do từ mạng này sang mạng khác và nhận IP mới tự động.
+
+
 **Nhược điểm**
+
+
   + Việc sử dụng IP động của DHCP không phù hợp với các thiết bị cố định như máy in,file server.
   + DHCP thường chỉ đc sử dụng tại các hộ gia đình hoặc mô hình mạng nhỏ
 
