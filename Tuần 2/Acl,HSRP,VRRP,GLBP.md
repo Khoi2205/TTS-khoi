@@ -6,7 +6,7 @@
 - [4. VRRP](#4-vrrp)
 - [5. Bài lab cấu hình VRRP](#5-bài-lab-cấu-hình-vrrp)
 - [6. Sự khác nhau giữa vrrp và hsrp](#6-sự-khác-nhau-giữa-vrrp-và-hsrp)
-- [GLBP](#glbp)
+- [7. GLBP](#7-glbp)
 
 
 ### 1. ACL
@@ -359,7 +359,7 @@ R2 bây g thành backup
 
 
 
-###  GLBP
+###  7. GLBP
 
 GLBP (Gateway Load Balancing Protocol) là một giao thức định tuyến dự phòng và phân tải tải trọng dựa trên nhiều cổng (FHRP - First Hop Redundancy Protocol) được phát triển bởi Cisco. GLBP cho phép nhiều thiết bị định tuyến hoạt động như một cổng cổng mặc định duy nhất để cung cấp khả năng dự phòng và phân tải tải trọng cho các kết nối mạng đến một cổng cổng mặc định.
 
