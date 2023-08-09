@@ -1,6 +1,14 @@
+- [1. ACL](#1-acl)
+  - [1.1. Bài lab thực hiện ACL](#11-bài-lab-thực-hiện-acl)
+- [2. Mô hình bài lab thứ 2:](#2-mô-hình-bài-lab-thứ-2)
+- [3. HSRP](#3-hsrp)
+  - [3.1. Bài lab mô phỏng HSRP](#31-bài-lab-mô-phỏng-hsrp)
+- [4. VRRP](#4-vrrp)
+- [5. Bài lab cấu hình VRRP](#5-bài-lab-cấu-hình-vrrp)
+- [6. Sự khác nhau giữa vrrp và hsrp](#6-sự-khác-nhau-giữa-vrrp-và-hsrp)
 
 
-### ACL
+### 1. ACL
 
 **Khái niệm về ACL**
 
@@ -24,7 +32,7 @@
 
 
 
-#### Bài lab thực hiện ACL
+#### 1.1. Bài lab thực hiện ACL
 
 
 ![Alt text](./anh/image-54.png)
@@ -69,7 +77,7 @@ Router(config-line)#access-class camtelnet in
 ![Alt text](./anh/image-56.png)
 
 
-### Mô hình bài lab thứ 2: 
+### 2. Mô hình bài lab thứ 2: 
 
 
 ![Alt text](./anh/image-57.png)
@@ -154,7 +162,7 @@ Extended IP access list 100
 
 
 
-### HSRP
+### 3. HSRP
 
 **Định nghĩa của HSRP :**
 
@@ -188,7 +196,7 @@ Trong một hệ thống mạng , router xảy ra các vấn đề(down , đứt
 
 
 
-#### Bài lab mô phỏng HSRP 
+#### 3.1. Bài lab mô phỏng HSRP 
 
 
 ![Alt text](./anh/image-62.png)
@@ -270,7 +278,7 @@ Router(config-if)#standby 1 priority 10
 
 
 
-### VRRP 
+### 4. VRRP 
 
 **Định nghĩa**
 
@@ -297,7 +305,7 @@ Router(config-if)#standby 1 priority 10
 
 
 
-### Bài lab cấu hình VRRP 
+### 5. Bài lab cấu hình VRRP 
 
 
 ![Alt text](./anh/image-68.png)
@@ -334,7 +342,7 @@ R2 bây g thành backup
 
 
 
-### Sự khác nhau giữa vrrp và hsrp 
+### 6. Sự khác nhau giữa vrrp và hsrp 
 
 `VRRP`: Sử dụng một chuỗi các địa chỉ IP ảo (virtual IP address) cho mỗi nhóm VRRP. Mỗi router ảo trong nhóm có một địa chỉ IP ảo duy nhất.
 `HSRP`: Sử dụng một địa chỉ IP ảo duy nhất cho cả nhóm HSRP. Các router trong nhóm sẽ chia sẻ cùng một địa chỉ IP ảo.
