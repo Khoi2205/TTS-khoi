@@ -201,8 +201,8 @@ Switch(config)#spanning-tree vlan 40 root secondary
 Switch(config)#spanning-tree vlan 10 root secondary 
 Switch(config)#spanning-tree vlan 20 root secondary 
 Switch(config)#spanning-tree vlan 50 root secondary 
-Switch(config)#spanning-tree vlan 30 root pr./anh_lab/imary 
-Switch(config)#spanning-tree vlan 40 root pr./anh_lab/imary
+Switch(config)#spanning-tree vlan 30 root primary
+Switch(config)#spanning-tree vlan 40 root primary
 ```
 
 Thực hiện cấu hình trên acc 3,4,5

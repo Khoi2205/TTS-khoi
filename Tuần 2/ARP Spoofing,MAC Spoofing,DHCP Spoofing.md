@@ -27,9 +27,9 @@ ARP Spoofing thường xảy ra trong mạng LAN, nơi mà các thiết bị n�
 
 
 **Cách để phát hiện 1 cuộc tấn công ARP Spoofing** 
-Kiểm tra bảng ARP (ARP Table): Kiểm tra bảng ARP của thiết bị mạng để xem xem có các địa chỉ MAC lạ hoặc trùng lắp không đáng tin cậy. Nếu bạn thấy các địa chỉ MAC không phù hợp với các địa chỉ IP đã biết, có thể có dấu hiệu của ARP Spoofing.
+Kiểm tra bảng ARP (ARP Table): Kiểm tra bảng ARP của thiết bị mạng để xem xem có các địa chỉ MAC lạ hoặc trùng lắp không đáng tin cậy. Nếu thấy các địa chỉ MAC không phù hợp với các địa chỉ IP đã biết, có thể có dấu hiệu của ARP Spoofing.
 
-`ARP Spoofing Detection Tool`: Có nhiều công cụ phát hiện ARP Spoofing có sẵn, giúp bạn giám sát và phát hiện sự thay đổi bất thường trong bảng ARP của các thiết bị mạng.
+`ARP Spoofing Detection Tool`: Có nhiều công cụ phát hiện ARP Spoofing có sẵn, giúp giám sát và phát hiện sự thay đổi bất thường trong bảng ARP của các thiết bị mạng.
 
 `ARP Watch`: ARP Watch là một phần mềm theo dõi ARP, giúp phát hiện và cảnh báo sớm khi có sự thay đổi không mong muốn trong bảng ARP.
 
@@ -57,11 +57,11 @@ MAC Snooping xảy ra trên các switch trong mạng LAN, chẳng hạn như swi
 
 
 **Cách thức phòng tránh:**
-Để phát hiện hành động của bạn có ảnh hưởng đến tính năng MAC Snooping hay không, bạn có thể thực hiện các bước sau:
+Để phát hiện hành động của có ảnh hưởng đến tính năng MAC Snooping hay không, có thể thực hiện các bước sau:
 
 Theo dõi log (nhật ký) của switch: Switch thường ghi lại các thông báo và sự kiện liên quan đến hoạt động của MAC Snooping trong log của nó.Có thể xem log để kiểm tra xem có thông báo hoặc cảnh báo nào liên quan đến MAC Snooping xuất hiện không.
 Kiểm tra bảng MAC của switch:kiểm tra bảng MAC của switch để xem các địa chỉ MAC đã học được và các cổng mà chúng đã được gán. Nếu các thông tin trong bảng MAC không chính xác hoặc không như mong đợi, điều này có thể là dấu hiệu của vấn đề liên quan đến MAC Snooping.
-Sử dụng công cụ giám sát mạng: Các công cụ giám sát mạng như Wireshark, tcpdump, hoặc các phần mềm giám sát mạng có thể giúp bạn theo dõi lưu lượng trên mạng và xem các thông báo hoặc ghi chú liên quan đến hoạt động của MAC Snooping. Điều này sẽ giúp bạn theo dõi các gói tin và tìm hiểu liệu có sự thay đổi hoặc hiệu ứng không mong muốn nào xảy ra trong mạng.
+Sử dụng công cụ giám sát mạng: Các công cụ giám sát mạng như Wireshark, tcpdump, hoặc các phần mềm giám sát mạng có thể giúp theo dõi lưu lượng trên mạng và xem các thông báo hoặc ghi chú liên quan đến hoạt động của MAC Snooping. Điều này sẽ giúp theo dõi các gói tin và tìm hiểu liệu có sự thay đổi hoặc hiệu ứng không mong muốn nào xảy ra trong mạng.
 
 
 ### 3. DHCP Spoofing
@@ -78,7 +78,7 @@ DHCP Spoofing xuất hiện khi kẻ tấn công giả mạo các thông điệp
 
 
 **Cách thức phòng tránh:**
-Để phát hiện và ngăn chặn DHCP Spoofing, bạn có thể thực hiện các biện pháp bảo mật sau:
+Để phát hiện và ngăn chặn DHCP Spoofing, có thể thực hiện các biện pháp bảo mật sau:
 
 Sử dụng DHCP Snooping: DHCP Snooping là một tính năng có sẵn trên nhiều switch, nó giúp giám sát và kiểm soát lưu lượng DHCP trên mạng LAN. Khi kích hoạt DHCP Snooping, switch sẽ ghi lại các thông điệp DHCP và kiểm tra tính hợp lệ của chúng trước khi truyền tiếp đến các máy tính trong mạng.
 
@@ -86,11 +86,11 @@ Sử dụng DHCP Snooping: DHCP Snooping là một tính năng có sẵn trên n
 Sử dụng ARP Inspection: ARP Inspection là một tính năng bảo mật mạng, nó kiểm tra tính hợp lệ của thông báo ARP trong mạng. Khi kích hoạt ARP Inspection, switch sẽ chặn các gói tin ARP giả mạo được gửi từ các cổng không hợp lệ, làm giảm khả năng thực hiện DHCP Spoofing.
 
 
-Xác định các địa chỉ MAC hợp lệ của máy chủ DHCP: Trong cấu hình DHCP, bạn có thể chỉ định các địa chỉ MAC của máy chủ DHCP hợp lệ. Điều này sẽ giúp ngăn chặn các máy tính khác giả mạo thành máy chủ DHCP và thực hiện DHCP Spoofing.
+Xác định các địa chỉ MAC hợp lệ của máy chủ DHCP: Trong cấu hình DHCP, có thể chỉ định các địa chỉ MAC của máy chủ DHCP hợp lệ. Điều này sẽ giúp ngăn chặn các máy tính khác giả mạo thành máy chủ DHCP và thực hiện DHCP Spoofing.
 
 
 
-Theo dõi log (nhật ký) của switch: Switch thường ghi lại các thông báo và sự kiện liên quan đến hoạt động của DHCP Snooping và ARP Inspection trong log của nó. Bạn có thể xem log để kiểm tra xem có thông báo hoặc cảnh báo nào liên quan đến DHCP Spoofing xuất hiện không.
+Theo dõi log (nhật ký) của switch: Switch thường ghi lại các thông báo và sự kiện liên quan đến hoạt động của DHCP Snooping và ARP Inspection trong log của nó. có thể xem log để kiểm tra xem có thông báo hoặc cảnh báo nào liên quan đến DHCP Spoofing xuất hiện không.
 
 
 Thực hiện phòng chống dhcp Spoofing bằng cách sử dụng dhcp Snooping

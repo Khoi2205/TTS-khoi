@@ -2,6 +2,7 @@
 - [1. Virtual Switching System (VSS)](#1-virtual-switching-system-vss)
 - [2. Stacking](#2-stacking)
 - [3. Virtual Port Channel (vPC)](#3-virtual-port-channel-vpc)
+- [Bài lab cấu hình vPC](#bài-lab-cấu-hình-vpc)
 - [4. MLAG](#4-mlag)
 - [5. So sánh VSS (Virtual Switching System) /Stack/vPC (virtual Port Chanel)/ MLAG](#5-so-sánh-vss-virtual-switching-system-stackvpc-virtual-port-chanel-mlag)
 - [6. Policy-Based Routing (PBR):](#6-policy-based-routing-pbr)
@@ -18,7 +19,7 @@ Virtual Switching System (VSS) là một kiến trúc mạng được sử dụn
 
 **Đặc điểm chính của Virtual Switching System:**
 
-`Gộp các thiết bị chuyển mạch`: VSS cho phép hai hoặc nhiều thiết bị chuyển mạch vật lý hoạt động như một switch ảo duy nhất. Thay vì cấu hình và quản lý các thiết bị riêng lẻ, VSS cho phép bạn tạo ra một lớp quản lý chung.
+`Gộp các thiết bị chuyển mạch`: VSS cho phép hai hoặc nhiều thiết bị chuyển mạch vật lý hoạt động như một switch ảo duy nhất. Thay vì cấu hình và quản lý các thiết bị riêng lẻ, VSS cho phép tạo ra một lớp quản lý chung.
 
 `Chia sẻ dự phòng (Redundancy`): VSS cung cấp tính năng dự phòng cao hơn bằng cách tự động chuyển dữ liệu từ một thiết bị chuyển mạch sang thiết bị khác trong trường hợp một trong chúng gặp sự cố. Điều này giúp giảm thiểu thời gian gián đoạn dịch vụ.
 
@@ -26,14 +27,14 @@ Virtual Switching System (VSS) là một kiến trúc mạng được sử dụn
 
 `Load Balancing:` VSS cho phép phân phối tải lưu lượng truyền thông giữa các thành phần của hệ thống, giúp tận dụng tối đa khả năng xử lý của mỗi thiết bị.
 
-`Cấu hình đơn giản hóa`: Với VSS, bạn có thể cấu hình và quản lý toàn bộ hệ thống bằng cách xử lý một switch duy nhất thay vì phải làm việc với nhiều thiết bị riêng lẻ.
+`Cấu hình đơn giản hóa`: Với VSS, có thể cấu hình và quản lý toàn bộ hệ thống bằng cách xử lý một switch duy nhất thay vì phải làm việc với nhiều thiết bị riêng lẻ.
 
 `Hỗ trợ các tính năng mạng nâng cao`: VSS cung cấp tích hợp với các tính năng nâng cao như Spanning Tree Protocol (STP) tiến hóa (Rapid PVST+), định tuyến đa lớp (MLP), và các tính năng bảo mật.
 
 
 
 ### 2. Stacking
-Stacking là một phương pháp ghép nối nhiều thiết bị chuyển mạch cùng loại lại với nhau để tạo thành một thiết bị chuyển mạch duy nhất. Bằng cách kết hợp các thiết bị trong một stack, bạn có thể tạo ra một switch có hiệu suất tốt hơn, khả năng mở rộng linh hoạt và quản lý dễ dàng hơn. Các thiết bị trong stack hoạt động như một, chia sẻ thông tin về cấu hình và bảng MAC. Stacking phù hợp cho các mạng trung bình và yêu cầu tính linh hoạt trong việc mở rộng mạng.
+Stacking là một phương pháp ghép nối nhiều thiết bị chuyển mạch cùng loại lại với nhau để tạo thành một thiết bị chuyển mạch duy nhất. Bằng cách kết hợp các thiết bị trong một stack, có thể tạo ra một switch có hiệu suất tốt hơn, khả năng mở rộng linh hoạt và quản lý dễ dàng hơn. Các thiết bị trong stack hoạt động như một, chia sẻ thông tin về cấu hình và bảng MAC. Stacking phù hợp cho các mạng trung bình và yêu cầu tính linh hoạt trong việc mở rộng mạng.
 
 
 ![Alt text](./anh/image-47.png)
@@ -100,7 +101,7 @@ vPC domain là thông số để xác định các thiết bị switch Cisco Nex
 `Dự phòng cao:` vPC cung cấp tính dự phòng cao bằng cách cho phép các máy chủ hoặc thiết bị kết nối đồng thời với cả hai vPC peer, giúp tránh mất kết nối nếu một vPC peer gặp sự cố.
 `Cân bằng tải:` Các frame được phân phối giữa cả hai vPC peer, giúp tận dụng tối đa khả năng xử lý của hệ thống.
 `Tăng cường băng thông`: Máy chủ hoặc thiết bị có thể sử dụng băng thông từ cả hai vPC peer, cung cấp băng thông tăng gấp đôi so với một kết nối đơn lẻ.
-`Khả năng mở rộng:` Bằng cách thêm vPC peer hoặc mở rộng vPC domain, bạn có thể dễ dàng mở rộng mạng mà không làm gián đoạn hoạt động của mạng hiện có
+`Khả năng mở rộng:` Bằng cách thêm vPC peer hoặc mở rộng vPC domain, có thể dễ dàng mở rộng mạng mà không làm gián đoạn hoạt động của mạng hiện có
 
 **Nhược điểm:**
 
@@ -109,6 +110,19 @@ vPC domain là thông số để xác định các thiết bị switch Cisco Nex
 `Phải cân nhắc thiết kế`: Việc thiết kế vPC đúng cách là quan trọng để đảm bảo tính hiệu suất và tính sẵn sàng cao.
 
 
+
+### Bài lab cấu hình vPC 
+
+Mô hình bài lab
+
+
+![Alt text](image-5.png)
+
+
+Thực hiện cấu hình trên vPC-Primary
+
+
+[Link làm bài lab (do máy cài sw nexus lag nên không làm được)](https://www.forum.vnpro.org/forum/ccnp-enterprise/encor/421067-c%E1%BA%A5u-h%C3%ACnh-vpc-virtual-port-channel)
 
 
 ### 4. MLAG
@@ -149,7 +163,7 @@ Multi-Chassis Link Aggregation (MLAG) là một giải pháp trong mạng máy t
 
 **VSS (Virtual Switching System):**
 
-**Đặc điểm:** VSS là một giải pháp của Cisco cho phép bạn kết nối hai switch đến nhau để tạo thành một hệ thống duy nhất với tính dự phòng và tăng cường hiệu suất. Hai switch hoạt động như một switch duy nhất trong mạng, có cùng một địa chỉ IP và các thông số cấu hình.
+**Đặc điểm:** VSS là một giải pháp của Cisco cho phép kết nối hai switch đến nhau để tạo thành một hệ thống duy nhất với tính dự phòng và tăng cường hiệu suất. Hai switch hoạt động như một switch duy nhất trong mạng, có cùng một địa chỉ IP và các thông số cấu hình.
 
 **Ưu điểm:** Tính dự phòng cao, tăng cường hiệu suất, khả năng quản lý dễ dàng.
 **Nhược điểm:** Khả năng mở rộng hạn chế, thiết bị phải thuộc cùng dòng sản phẩm Cisco.
@@ -174,7 +188,7 @@ Multi-Chassis Link Aggregation (MLAG) là một giải pháp trong mạng máy t
 **Đặc điểm**: MLAG cho phép kết nối một thiết bị mạng với hai switch độc lập thông qua các liên kết gộp kênh. Hai switch hoạt động độc lập nhưng trông như một hệ thống duy nhất.
 **Ưu điểm**: Tính dự phòng, cân bằng tải, khả năng mở rộng, phù hợp cho trung tâm dữ liệu.
 **Nhược điểm:** Cấu hình phức tạp.
-
+```
 - Khi tính dự phòng cao là ưu tiên: VSS hoặc Stacking là lựa chọn tốt, tùy thuộc vào dòng sản phẩm và quy mô mạng.
 
 - Khi cần tối ưu hóa băng thông và cân bằng tải: vPC hoặc MLAG phù hợp, đặc biệt cho trung tâm dữ liệu.
@@ -182,24 +196,24 @@ Multi-Chassis Link Aggregation (MLAG) là một giải pháp trong mạng máy t
 - Đối với mạng nhỏ hoặc môi trường doanh nghiệp: Stacking có thể đơn giản hóa quản lý và triển khai.
 
 - Đối với mạng lớn và phức tạp: vPC hoặc MLAG cung cấp tính dự phòng và tối ưu hóa băng thông.
-
+```
 
 ### 6. Policy-Based Routing (PBR):
 
 **Định nghĩa:**
-Policy-Based Routing (PBR) là một kỹ thuật trong mạng máy tính cho phép bạn định hướng các gói dữ liệu dựa trên các tiêu chí khác nhau ngoài thông tin về địa chỉ IP và các quy tắc định tuyến thông thường. PBR cho phép bạn áp dụng các chính sách (policy) để xác định cách các gói dữ liệu được xử lý và định tuyến.
+Policy-Based Routing (PBR) là một kỹ thuật trong mạng máy tính cho phép định hướng các gói dữ liệu dựa trên các tiêu chí khác nhau ngoài thông tin về địa chỉ IP và các quy tắc định tuyến thông thường. PBR cho phép áp dụng các chính sách (policy) để xác định cách các gói dữ liệu được xử lý và định tuyến.
 
 **Chức năng:**
 
-`Định tuyến dựa trên chính sách`: PBR cho phép bạn thiết lập các chính sách cụ thể để xác định cách các gói dữ liệu sẽ được xử lý và định tuyến. Chính sách này có thể dựa trên các tiêu chí như địa chỉ nguồn, địa chỉ đích, giao thức, cổng, hoặc các thuộc tính khác của gói dữ liệu.
+`Định tuyến dựa trên chính sách`: PBR cho phép thiết lập các chính sách cụ thể để xác định cách các gói dữ liệu sẽ được xử lý và định tuyến. Chính sách này có thể dựa trên các tiêu chí như địa chỉ nguồn, địa chỉ đích, giao thức, cổng, hoặc các thuộc tính khác của gói dữ liệu.
 
 
-`Thiết lập đường đi tùy chỉnh`: Bằng cách sử dụng PBR, bạn có thể chỉ định đường đi tùy chỉnh cho các gói dữ liệu thỏa mãn các điều kiện trong chính sách. Điều này cho phép bạn định hướng các gói dữ liệu theo các đường đi khác nhau dựa trên nhu cầu cụ thể của mạng.
+`Thiết lập đường đi tùy chỉnh`: Bằng cách sử dụng PBR, có thể chỉ định đường đi tùy chỉnh cho các gói dữ liệu thỏa mãn các điều kiện trong chính sách. Điều này cho phép định hướng các gói dữ liệu theo các đường đi khác nhau dựa trên nhu cầu cụ thể của mạng.
 
 
 **Cách thức hoạt động:**
 
-Xác định chính sách: Đầu tiên, xác định các chính sách cụ thể mà bạn muốn áp dụng. Điều này có thể bao gồm việc chỉ định các tiêu chí như địa chỉ nguồn, địa chỉ đích, giao thức, cổng, hay các yếu tố khác.
+Xác định chính sách: Đầu tiên, xác định các chính sách cụ thể mà muốn áp dụng. Điều này có thể bao gồm việc chỉ định các tiêu chí như địa chỉ nguồn, địa chỉ đích, giao thức, cổng, hay các yếu tố khác.
 
 Áp dụng chính sách: Khi gói dữ liệu tới thiết bị định tuyến, chính sách PBR sẽ được áp dụng. Hệ thống sẽ so khớp gói dữ liệu với các chính sách đã được xác định.
 

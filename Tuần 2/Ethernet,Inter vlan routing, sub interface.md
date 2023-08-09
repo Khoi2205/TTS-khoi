@@ -5,6 +5,7 @@
 - [3. Inter vlan routing, sub interface](#3-inter-vlan-routing-sub-interface)
   - [3.1. Định nghĩa](#31-định-nghĩa)
   - [3.2. Bài lab cấu hình subinterface VLAN](#32-bài-lab-cấu-hình-subinterface-vlan)
+- [Bài Lab demo](#bài-lab-demo)
 
 
 
@@ -184,5 +185,96 @@ Thực hiện show kq bằng cách ping từ pc1 sang pc 3 4
 
 
 ![Alt text](./anh/image-9.png)
+
+
+
+
+
+### Bài Lab demo 
+
+
+![Alt text](image-1.png)
+
+
+
+```
+Yêu cầu cấu hình LACP trên sw
+Tạo các vlan 10 ,20 , 30 , cấu hình vtp 
+Tạo subinterface 
+
+```
+
+
+Thực hiện cấu hình trên sw1:
+
+```
+vtp domain khoikhoi
+vtp mode server 
+vlan 10 
+vlan 20
+vlan 30
+ex
+int range g1/0/1-2
+sw mode trunk
+channel-group 1 mode active
+ex
+int g1/0/3
+sw mode access
+sw acces vlan 10
+int g1/0/4
+sw mode access
+sw acces vlan 20
+ex
+int g1/0/5
+sw mode trunk
+```
+
+Thực hiện cấu hình trên sw2:
+
+```
+vtp domain khoikhoi
+vtp mode server 
+ex
+int range g1/0/1-2
+sw mode trunk
+channel-group 1 mode active
+ex
+int g1/0/3
+sw mode access
+sw acces vlan 30
+```
+
+
+Thực hiện cấu hình trên router:
+
+```
+Router(config)#int g0/0.10
+Router(config-subif)#encapsulation dot1Q 10
+Router(config-subif)#ip address 192.168.10.1 255.255.255.0
+Router(config-subif)#ex
+Router(config)#int g0/0.20
+Router(config-subif)#ip address 10.0.0.1 255.255.255.0
+Router(config-subif)#encapsulation dot1Q 20
+Router(config-subif)#ex
+Router(config)#int g0/0.30
+Router(config-subif)#encapsulation dot1Q 30
+Router(config-subif)#ip address 192.168.30.1 255.255.255.0
+```
+
+Thực hiện đặt địa chỉ ip trên các pc 
+
+
+![Alt text](image.png)
+
+
+![Alt text](image-2.png)
+
+
+![Alt text](image-3.png)
+
+
+Thực hiện ping : 
+
+![Alt text](image-4.png)
 
 
