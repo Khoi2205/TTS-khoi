@@ -6,6 +6,7 @@
 - [4. VRRP](#4-vrrp)
 - [5. Bài lab cấu hình VRRP](#5-bài-lab-cấu-hình-vrrp)
 - [6. Sự khác nhau giữa vrrp và hsrp](#6-sự-khác-nhau-giữa-vrrp-và-hsrp)
+- [GLBP](#glbp)
 
 
 ### 1. ACL
@@ -354,4 +355,29 @@ R2 bây g thành backup
 `VRRP`: Chu kỳ quảng bá mặc định là 1 giây.
 
 `HSRP`: Chu kỳ quảng bá mặc định là 3 giây.
+
+
+
+
+###  GLBP
+
+GLBP (Gateway Load Balancing Protocol) là một giao thức định tuyến dự phòng và phân tải tải trọng dựa trên nhiều cổng (FHRP - First Hop Redundancy Protocol) được phát triển bởi Cisco. GLBP cho phép nhiều thiết bị định tuyến hoạt động như một cổng cổng mặc định duy nhất để cung cấp khả năng dự phòng và phân tải tải trọng cho các kết nối mạng đến một cổng cổng mặc định.
+
+**Cách thức hoạt động:**
+
+GLBP làm việc bằng cách chia tải trọng của các yêu cầu ARP (Address Resolution Protocol) giữa các thiết bị định tuyến. Các thiết bị này hoạt động như một nhóm GLBP, trong đó một router được chọn làm Active Virtual Gateway (AVG), và các router khác trong nhóm hoạt động như Active Virtual Forwarders (AVFs).
+AVG trả lời yêu cầu ARP cho địa chỉ IP mục tiêu bằng cách gửi địa chỉ MAC của một trong các AVF, giúp phân tải tải trọng giữa các router.
+
+**Chức năng:**
+
+Dự phòng (Redundancy): GLBP cung cấp khả năng dự phòng bằng cách cho phép nhiều router tham gia vào một nhóm GLBP. Nếu AVG hoặc AVF gặp sự cố, một router khác trong nhóm có thể thay thế để đảm bảo tính sẵn sàng cao.
+
+Phân tải tải trọng (Load Balancing): GLBP phân tải tải trọng giữa các router trong nhóm bằng cách chia sẻ việc trả lời yêu cầu ARP. Điều này giúp cân bằng tải trên các kết nối đến cổng cổng mặc định.
+
+**Nhược điểm:**
+
+Phức tạp hơn so với HSRP hoặc VRRP: So với các giao thức khác như HSRP và VRRP, GLBP có cấu hình và quản lý phức tạp hơn do tính phân tải tải trọng.
+
+Phụ thuộc vào hỗ trợ từ thiết bị khách hàng: Khả năng triển khai GLBP phụ thuộc vào việc thiết bị khách hàng có hỗ trợ giao thức này hay không
+
 
